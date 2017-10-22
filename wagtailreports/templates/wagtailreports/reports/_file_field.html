@@ -1,0 +1,7 @@
+{% extends "wagtailadmin/shared/field.html" %}
+{% load i18n %}
+{% block form_field %}
+    <a href="{{ report.url }}" class="icon icon-doc-full-inverse">{{ report.filename }}</a><br /><br />
+    {% trans "Change report:" %}
+    {{ field }}
+{% endblock %}

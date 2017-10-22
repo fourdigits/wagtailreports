@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Jose Lourenco <jose@lourenco.ws>, 2015
+# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2015
+# Thiago Cangussu <cangussu.thg@gmail.com>, 2014
+# Tiago Henriques <trinosauro@gmail.com>, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Wagtail\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-06 15:05+0000\n"
+"PO-Revision-Date: 2017-09-23 20:18+0000\n"
+"Last-Translator: Matt Westcott <matthew@torchbox.com>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/torchbox/"
+"wagtail/language/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Add/edit reports you own"
+msgstr "Crie/altere os seus reportos"
+
+msgid "Edit"
+msgstr "Alterar"
+
+msgid "Edit any report"
+msgstr "Alterar qualquer reporto"
+
+msgid "title"
+msgstr "título"
+
+msgid "file"
+msgstr "ficheiro"
+
+msgid "created at"
+msgstr "criado em"
+
+msgid "uploaded by user"
+msgstr "carregado pelo utilizador"
+
+msgid "tags"
+msgstr "palavras-chave"
+
+msgid "report"
+msgstr "reporto"
+
+msgid "Choose a report"
+msgstr "Escolher um reporto"
+
+msgid "Search"
+msgstr "Pesquisar"
+
+msgid "Upload"
+msgstr "Carregar"
+
+msgid "Uploading..."
+msgstr "A carregar..."
+
+msgid "Server Error"
+msgstr "Erro no Servidor"
+
+msgid "Report this error to your webmaster with the following information:"
+msgstr "Comunique este erro ao seu webmaster com a seguinte informação:"
+
+#, python-format
+msgid ""
+"\n"
+"            There is one match\n"
+"        "
+msgid_plural ""
+"\n"
+"            There are %(counter)s matches\n"
+"        "
+msgstr[0] ""
+"\n"
+"Encontrado um resultado\n"
+"        "
+msgstr[1] ""
+"\n"
+"Encontrados %(counter)s resultados\n"
+"        "
+
+msgid "Latest reports"
+msgstr "Últimos reportos"
+
+#, python-format
+msgid "Sorry, no reports match \"<em>%(query_string)s</em>\""
+msgstr "Desculpe, nenhum reporto corresponde a \"<em>%(query_string)s</em>\""
+
+msgid "Change report:"
+msgstr "Alterar reporto:"
+
+msgid "Add a report"
+msgstr "Adicionar um reporto"
+
+msgid "Add report"
+msgstr "Adicionar reporto"
+
+#, python-format
+msgid "Delete %(title)s"
+msgstr "Apagar %(title)s"
+
+msgid "Delete report"
+msgstr "Apagar reporto"
+
+msgid "Are you sure you want to delete this report?"
+msgstr "Tem certeza que quer apagar este reporto?"
+
+msgid "Yes, delete"
+msgstr "Sim, apagar"
+
+#, python-format
+msgid "Editing %(title)s"
+msgstr "A alterar %(title)s"
+
+msgid "Editing"
+msgstr "A alterar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Filesize"
+msgstr "Tamanho do ficheiro"
+
+msgid "File not found"
+msgstr "Ficheiro não encontrado"
+
+msgid "Reports"
+msgstr "Reportos"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "File"
+msgstr "Ficheiro"
+
+msgid "Uploaded"
+msgstr "Carregado"
+
+#, python-format
+msgid ""
+"You haven't uploaded any reports in this collection. Why not <a href="
+"\"%(wagtailreports_add_report_url)s\">upload one now</a>?"
+msgstr ""
+"Ainda não carregou nenhum reporto nesta coleção. Porque não <a href="
+"\"%(wagtailreports_add_report_url)s\">carregar um agora</a>?"
+
+#, python-format
+msgid ""
+"You haven't uploaded any reports. Why not <a href="
+"\"%(wagtailreports_add_report_url)s\">upload one now</a>?"
+msgstr ""
+"Ainda não carregou nenhum reporto. Porque não <a href="
+"\"%(wagtailreports_add_report_url)s\">carregar um agora</a>?"
+
+#, python-format
+msgid "Usage of %(title)s"
+msgstr "Utilização de %(title)s"
+
+msgid "Usage of"
+msgstr "Utilização de"
+
+msgid "Parent"
+msgstr "Mãe"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Edit this page"
+msgstr "Alterar esta página"
+
+#, python-format
+msgid ""
+"\n"
+"        <span>%(total)s</span> Report\n"
+"    "
+msgid_plural ""
+"\n"
+"        <span>%(total)s</span> Reports\n"
+"    "
+msgstr[0] ""
+"\n"
+"<span>%(total)s</span> Reporto"
+msgstr[1] ""
+"\n"
+"<span>%(total)s</span> Reportos\n"
+" "
+
+msgid "Add multiple reports"
+msgstr "Adicionar múltiplos reportos"
+
+msgid "Add reports"
+msgstr "Adicionar reportos"
+
+msgid "Drag and drop reports into this area to upload immediately."
+msgstr "Arraste e largue reportos nesta área para carregar imediatamente."
+
+msgid "Or choose from your computer"
+msgstr "Ou escolha no seu computador"
+
+msgid "Add to collection:"
+msgstr "Adicionar a coleção:"
+
+msgid ""
+"Upload successful. Please update this reports with a more appropriate "
+"title, if necessary. You may also delete the report completely if the "
+"upload wasn't required."
+msgstr ""
+"Carregado com sucesso. Por favor atualize este reporto com um título mais "
+"apropriado, se necessário. Também pode eliminar completamente o reporto se "
+"não o pretendia carregar."
+
+msgid "Sorry, upload failed."
+msgstr "Desculpe, o carregamento falhou."
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Report permissions"
+msgstr "Permissões de reporto"
+
+msgid "Add a report permission"
+msgstr "Adicionar uma permissão de reporto"
+
+msgid "Search reports"
+msgstr "Pesquisar reportos"
+
+#, python-brace-format
+msgid "Report '{0}' added."
+msgstr "Reporto '{0}' adicionado."
+
+msgid "The report could not be saved due to errors."
+msgstr "O reporto não pôde ser guardado devido a erros."
+
+#, python-brace-format
+msgid "Report '{0}' updated"
+msgstr "Reporto '{0}' atualizado"
+
+msgid ""
+"The file could not be found. Please change the source or delete the report"
+msgstr ""
+"O ficheiro não foi encontrado. Por favor mude a fonte ou apague o reporto"
+
+#, python-brace-format
+msgid "Report '{0}' deleted."
+msgstr "Reporto '{0}' apagado."
+
+#, python-format
+msgid "%(count)s report"
+msgid_plural "%(count)s reports"
+msgstr[0] "%(count)s reporto"
+msgstr[1] "%(count)s reportos"
+
+msgid "Choose another report"
+msgstr "Escolher outro reporto"
+
+msgid "Edit this report"
+msgstr "Alterar este reporto"

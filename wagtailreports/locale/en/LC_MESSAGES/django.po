@@ -1,0 +1,332 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-06 15:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:51
+msgid "Add"
+msgstr ""
+
+#: forms.py:51
+msgid "Add/edit reports you own"
+msgstr ""
+
+#: forms.py:52 views/reports.py:106 views/reports.py:144
+msgid "Edit"
+msgstr ""
+
+#: forms.py:52
+msgid "Edit any report"
+msgstr ""
+
+#: models.py:26
+msgid "title"
+msgstr ""
+
+#: models.py:27
+msgid "file"
+msgstr ""
+
+#: models.py:28
+msgid "created at"
+msgstr ""
+
+#: models.py:31
+msgid "uploaded by user"
+msgstr ""
+
+#: models.py:38
+msgid "tags"
+msgstr ""
+
+#: models.py:79
+msgid "report"
+msgstr ""
+
+#: templates/wagtailreports/chooser/chooser.html:2 widgets.py:13
+msgid "Choose a report"
+msgstr ""
+
+#: templates/wagtailreports/chooser/chooser.html:8
+msgid "Search"
+msgstr ""
+
+#: templates/wagtailreports/chooser/chooser.html:9
+#: templates/wagtailreports/chooser/chooser.html:42
+#: templates/wagtailreports/reports/add.html:35
+msgid "Upload"
+msgstr ""
+
+#: templates/wagtailreports/chooser/chooser.html:42
+#: templates/wagtailreports/reports/add.html:35
+msgid "Uploading..."
+msgstr ""
+
+#: templates/wagtailreports/chooser/chooser.js:66
+msgid "Server Error"
+msgstr ""
+
+#: templates/wagtailreports/chooser/chooser.js:67
+msgid "Report this error to your webmaster with the following information:"
+msgstr ""
+
+#: templates/wagtailreports/chooser/results.html:5
+#: templates/wagtailreports/reports/results.html:5
+#, python-format
+msgid ""
+"\n"
+"            There is one match\n"
+"        "
+msgid_plural ""
+"\n"
+"            There are %(counter)s matches\n"
+"        "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/wagtailreports/chooser/results.html:12
+msgid "Latest reports"
+msgstr ""
+
+#: templates/wagtailreports/chooser/results.html:19
+#: templates/wagtailreports/reports/results.html:20
+#, python-format
+msgid "Sorry, no reports match \"<em>%(query_string)s</em>\""
+msgstr ""
+
+#: templates/wagtailreports/reports/_file_field.html:5
+msgid "Change report:"
+msgstr ""
+
+#: templates/wagtailreports/reports/add.html:4
+#: templates/wagtailreports/reports/index.html:25
+msgid "Add a report"
+msgstr ""
+
+#: templates/wagtailreports/reports/add.html:20
+msgid "Add report"
+msgstr ""
+
+#: templates/wagtailreports/reports/confirm_delete.html:3
+#, python-format
+msgid "Delete %(title)s"
+msgstr ""
+
+#: templates/wagtailreports/reports/confirm_delete.html:5
+#: templates/wagtailreports/reports/edit.html:41
+msgid "Delete report"
+msgstr ""
+
+#: templates/wagtailreports/reports/confirm_delete.html:9
+msgid "Are you sure you want to delete this report?"
+msgstr ""
+
+#: templates/wagtailreports/reports/confirm_delete.html:12
+msgid "Yes, delete"
+msgstr ""
+
+#: templates/wagtailreports/reports/edit.html:4
+#, python-format
+msgid "Editing %(title)s"
+msgstr ""
+
+#: templates/wagtailreports/reports/edit.html:20
+msgid "Editing"
+msgstr ""
+
+#: templates/wagtailreports/reports/edit.html:39
+msgid "Save"
+msgstr ""
+
+#: templates/wagtailreports/reports/edit.html:50
+msgid "Filesize"
+msgstr ""
+
+#: templates/wagtailreports/reports/edit.html:51
+msgid "File not found"
+msgstr ""
+
+#: templates/wagtailreports/reports/index.html:22 wagtail_hooks.py:49
+#: wagtail_hooks.py:124
+msgid "Reports"
+msgstr ""
+
+#: templates/wagtailreports/reports/list.html:11
+#: templates/wagtailreports/reports/list.html:14
+#: templates/wagtailreports/reports/usage.html:16
+msgid "Title"
+msgstr ""
+
+#: templates/wagtailreports/reports/list.html:17
+msgid "File"
+msgstr ""
+
+#: templates/wagtailreports/reports/list.html:21
+#: templates/wagtailreports/reports/list.html:24
+msgid "Uploaded"
+msgstr ""
+
+#: templates/wagtailreports/reports/list.html:40
+#, python-format
+msgid "%(time_period)s ago"
+msgstr ""
+
+#: templates/wagtailreports/reports/results.html:26
+#, python-format
+msgid ""
+"You haven't uploaded any reports in this collection. Why not <a href="
+"\"%(wagtailreports_add_report_url)s\">upload one now</a>?"
+msgstr ""
+
+#: templates/wagtailreports/reports/results.html:28
+#, python-format
+msgid ""
+"You haven't uploaded any reports. Why not <a href="
+"\"%(wagtailreports_add_report_url)s\">upload one now</a>?"
+msgstr ""
+
+#: templates/wagtailreports/reports/usage.html:3
+#, python-format
+msgid "Usage of %(title)s"
+msgstr ""
+
+#: templates/wagtailreports/reports/usage.html:5
+msgid "Usage of"
+msgstr ""
+
+#: templates/wagtailreports/reports/usage.html:17
+msgid "Parent"
+msgstr ""
+
+#: templates/wagtailreports/reports/usage.html:18
+msgid "Type"
+msgstr ""
+
+#: templates/wagtailreports/reports/usage.html:19
+msgid "Status"
+msgstr ""
+
+#: templates/wagtailreports/reports/usage.html:26
+msgid "Edit this page"
+msgstr ""
+
+#: templates/wagtailreports/homepage/site_summary_reports.html:5
+#, python-format
+msgid ""
+"\n"
+"        <span>%(total)s</span> Report\n"
+"    "
+msgid_plural ""
+"\n"
+"        <span>%(total)s</span> Reports\n"
+"    "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/wagtailreports/multiple/add.html:5
+msgid "Add multiple reports"
+msgstr ""
+
+#: templates/wagtailreports/multiple/add.html:13
+msgid "Add reports"
+msgstr ""
+
+#: templates/wagtailreports/multiple/add.html:18
+msgid "Drag and drop reports into this area to upload immediately."
+msgstr ""
+
+#: templates/wagtailreports/multiple/add.html:23
+msgid "Or choose from your computer"
+msgstr ""
+
+#: templates/wagtailreports/multiple/add.html:29
+msgid "Add to collection:"
+msgstr ""
+
+#: templates/wagtailreports/multiple/add.html:59
+msgid ""
+"Upload successful. Please update this reports with a more appropriate "
+"title, if necessary. You may also delete the report completely if the "
+"upload wasn't required."
+msgstr ""
+
+#: templates/wagtailreports/multiple/add.html:60
+msgid "Sorry, upload failed."
+msgstr ""
+
+#: templates/wagtailreports/multiple/edit_form.html:14
+msgid "Update"
+msgstr ""
+
+#: templates/wagtailreports/multiple/edit_form.html:15 views/reports.py:166
+msgid "Delete"
+msgstr ""
+
+#: templates/wagtailreports/password_required.html:5
+msgid "You need a password to access this report."
+msgstr ""
+
+#: templates/wagtailreports/permissions/includes/report_permissions_formset.html:4
+msgid "Report permissions"
+msgstr ""
+
+#: templates/wagtailreports/permissions/includes/report_permissions_formset.html:5
+msgid "Add a report permission"
+msgstr ""
+
+#: views/reports.py:52 views/reports.py:57
+msgid "Search reports"
+msgstr ""
+
+#: views/reports.py:105
+#, python-brace-format
+msgid "Report '{0}' added."
+msgstr ""
+
+#: views/reports.py:110 views/reports.py:148
+msgid "The report could not be saved due to errors."
+msgstr ""
+
+#: views/reports.py:143
+#, python-brace-format
+msgid "Report '{0}' updated"
+msgstr ""
+
+#: views/reports.py:165
+msgid ""
+"The file could not be found. Please change the source or delete the report"
+msgstr ""
+
+#: views/reports.py:189
+#, python-brace-format
+msgid "Report '{0}' deleted."
+msgstr ""
+
+#: wagtail_hooks.py:143
+#, python-format
+msgid "%(count)s report"
+msgid_plural "%(count)s reports"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets.py:14
+msgid "Choose another report"
+msgstr ""
+
+#: widgets.py:15
+msgid "Edit this report"
+msgstr ""

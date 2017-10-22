@@ -1,0 +1,30 @@
+{% extends "wagtailadmin/base.html" %}
+{% load i18n %}
+{% block titletag %}Report panels{% endblock %}
+{% block extra_js %}
+    {{ block.super }}
+    <script>
+        window.headerSearch = {
+            url: "{% url 'wagtailreportpanels:index' %}",
+            termInput: "#id_q",
+            targetOutput: "#report_panel-results"
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% trans "Report panels" as doc_str %}
+
+    {% if user_can_add %}
+        {% trans "Add a report panel" as add_doc_str %}
+        {% include "wagtailadmin/shared/header.html" with title=doc_str add_link="wagtailreportpanels:add" icon="doc-full-inverse" add_text=add_doc_str search_url="wagtailreportpanels:index" %}
+    {% else %}
+        {% include "wagtailadmin/shared/header.html" with title=doc_str icon="doc-full-inverse" search_url="wagtailreportpanels:index" %}
+    {% endif %}
+
+    <div class="nice-padding">
+        <div id="report_panel-results" class="report_panels">
+            {% include "wagtailreports/report_panels/results.html" %}
+        </div>
+    </div>
+{% endblock %}

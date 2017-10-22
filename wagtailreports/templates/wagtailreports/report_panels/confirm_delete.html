@@ -1,0 +1,15 @@
+{% extends "wagtailadmin/base.html" %}
+{% load i18n %}
+{% block titletag %}{% blocktrans with title=report_panel.title %}Delete {{ title }}{% endblocktrans %}{% endblock %}
+{% block content %}
+    {% trans "Delete report panel" as del_str %}
+    {% include "wagtailadmin/shared/header.html" with title=del_str subtitle=report_panel.title icon="doc-full-inverse" %}
+
+    <div class="nice-padding">
+        <p>{% trans "Are you sure you want to delete this report panel?" %}</p>
+        <form action="{% url 'wagtailreportpanels:delete' report_panel.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value='{% trans "Yes, delete" %}' class="button serious" />
+        </form>
+    </div>
+{% endblock %}
