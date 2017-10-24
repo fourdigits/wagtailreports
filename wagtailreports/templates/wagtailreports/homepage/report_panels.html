@@ -1,7 +1,7 @@
 {% load i18n %}
 <h1 class="visuallyhidden">{% trans 'Reports' %}</h1>
 {% for panel in panels %}
-<section class="panel summary nice-padding">
+<section class="panel nice-padding">
     <h2>{{ panel.title }}</h2>
     {% for report in panel.reports.all %}
     <div class="report">
