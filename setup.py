@@ -2,8 +2,8 @@
 
 import sys
 
-from wagtail import __version__
-from wagtail.utils.setup import assets, sdist, check_bdist_egg
+# from wagtailreports import __version__
+# from wagtailreports.utils.setup import assets, sdist, check_bdist_egg
 
 try:
     from setuptools import setup, find_packages
@@ -55,7 +55,7 @@ documentation_extras = [
 
 setup(
     name='wagtailreports',
-    version=__version__,
+    version='0.1',
     description='A Wagtail CMS package for reports and report panels',
     author='Coen van der Kamp',
     author_email='coen@fourdigits.nl',
@@ -89,9 +89,9 @@ setup(
             wagtailreports=wagtail.bin.wagtail:main
     """,
     zip_safe=False,
-    cmdclass={
-        'sdist': sdist,
-        'bdist_egg': check_bdist_egg,
-        'assets': assets,
-    },
+    # cmdclass={
+    #     'sdist': sdist,
+    #     'bdist_egg': check_bdist_egg,
+    #     'assets': assets,
+    # },
 )
