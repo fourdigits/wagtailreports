@@ -29,3 +29,8 @@ Include the `wagtailreports_urls` in your urls:
         url(r'^reports/', include(wagtailreports_urls)),
 
     ]
+
+
+You might want to disable 'Your most resent edits listing' and configure it via reports. In settings:
+
+    WAGTAILADMIN_RECENT_EDITS_LIMIT = 0
