@@ -40,3 +40,4 @@ Include the wagtailreports_urls in your urls:
 .. image:: preview.png
    :width: 100%
    :alt: Wagtail Reports
+   :target: https://github.com/fourdigits/wagtailreports/raw/master/preview.png
