@@ -36,3 +36,7 @@ Include the wagtailreports_urls in your urls:
         url(r'^reports/', include(wagtailreports_urls)),
 
     ]
+
+.. image:: preview.png
+   :width: 100%
+   :alt: Wagtail Reports

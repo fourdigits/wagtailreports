@@ -1,18 +1,33 @@
 {% load i18n wagtailadmin_tags %}
+
+<style>
+    .report {
+        width: 32%;
+        background: #fafafa;
+        padding: 13px;
+        float: left;
+        margin-right: 1%;
+        box-sizing: border-box;
+    }
+    .report-listing {
+        background: white;
+    }
+</style>
+
 <h1 class="visuallyhidden">{% trans 'Reports' %}</h1>
 {% for panel in panels %}
 <div class="panel">
     <div class="panel nice-padding">
         <h1>{{ panel.title }}</h1>
         {% for report in panel.reports.all %}
-        <section>
+        <section class="report">
             <h2>
                 {{ report.title }}
                 {% if report.results.count %}
                     ({{ report.results.count }})
                 {% endif %}
             </h2>
-            <table class="listing listing-page">
+            <table class="listing report-listing listing-page">
                 <col />
                 <col width="15%"/>
                 <col width="15%"/>
