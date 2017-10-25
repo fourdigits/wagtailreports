@@ -1,7 +1,8 @@
 Wagtail Reports
 ===============
 
-Display filtered content on the admin dashboard.
+Wagtail Reports allows to create custom reports. The reports are displayed on the admin dashboard.
+Wagtail Reports gives you and your team useful insight on the day-to-day content and content changes.
 
 
 Install
@@ -9,10 +10,14 @@ Install
 
 Pip install:
 
+.. code-block:: bash
+
     pip install git+ssh://git@github.com/fourdigits/wagtailreports.git
 
 
-Add 'wagtailreports' to your settings:
+Add wagtailreports to your settings:
+
+.. code:: python
 
     INSTALLED_APPS = [
         ...
@@ -20,7 +25,9 @@ Add 'wagtailreports' to your settings:
     ]
 
 
-Include the `wagtailreports_urls` in your urls:
+Include the wagtailreports_urls in your urls:
+
+.. code:: python
 
     from wagtailreports import urls as wagtailreports_urls
 
@@ -29,8 +36,3 @@ Include the `wagtailreports_urls` in your urls:
         url(r'^reports/', include(wagtailreports_urls)),
 
     ]
-
-
-You might want to disable 'Your most resent edits listing' and configure it via reports. In settings:
-
-    WAGTAILADMIN_RECENT_EDITS_LIMIT = 0
