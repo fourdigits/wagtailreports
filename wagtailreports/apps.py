@@ -7,7 +7,3 @@ class WagtailReportsAppConfig(AppConfig):
     name = 'wagtailreports'
     label = 'wagtailreports'
     verbose_name = "Wagtail reports"
-
-    def ready(self):
-        from wagtailreports.signal_handlers import register_signal_handlers
-        register_signal_handlers()
