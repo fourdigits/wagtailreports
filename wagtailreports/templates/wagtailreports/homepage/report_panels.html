@@ -6,7 +6,12 @@
         <h1>{{ panel.title }}</h1>
         {% for report in panel.reports.all %}
         <section>
-            <h2>{{ report.title }}</h2>
+            <h2>
+                {{ report.title }}
+                {% if report.results.count %}
+                    ({{ report.results.count }})
+                {% endif %}
+            </h2>
             <table class="listing listing-page">
                 <col />
                 <col width="15%"/>
@@ -19,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for result in report.results %}
+                    {% for result in report.results.list %}
                     <tr>
                         <td class="title" valign="top">
                             <h2>

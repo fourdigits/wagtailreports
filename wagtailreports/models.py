@@ -1,16 +1,42 @@
 from __future__ import absolute_import, unicode_literals
 
+from datetime import timedelta
+
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.dispatch import Signal
+from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-# from wagtail.wagtailadmin.utils import get_object_usage
-from wagtail.wagtailcore.models import Page
 from wagtail.wagtailsearch import index
 from wagtail.wagtailsearch.queryset import SearchableQuerySetMixin
+
+
+def string_to_datetime(val):
+    now = timezone.now()
+    day_start = now.replace(hour=0, minute=0, second=0)
+    day_end = day_start + timedelta(days=1)
+    return {
+        'now-14d': (now, day_end + timedelta(days=14)),
+        'now-7d': (now, day_end + timedelta(days=7)),
+        'now-3d': (now, day_end + timedelta(days=3)),
+        'now-2d': (now, day_end + timedelta(days=2)),
+        'now-1d': (now, day_end + timedelta(days=1)),
+        'now-3h': (now, now + timedelta(hours=3)),
+        'now-2h': (now, now + timedelta(hours=2)),
+        'now-1h': (now, now + timedelta(hours=1)),
+        'today': (day_start, day_end),
+        '1h-now': (now - timedelta(hours=1), now),
+        '2h-now': (now - timedelta(hours=2), now),
+        '3h-now': (now - timedelta(hours=3), now),
+        'mn-now': (day_start, now),
+        '2d-now': (day_start - timedelta(days=2), now),
+        '3d-now': (day_start - timedelta(days=3), now),
+        '7d-now': (day_start - timedelta(days=7), now),
+        '14d-now': (day_start - timedelta(days=14), now),
+    }[val]
 
 
 class ReportQuerySet(SearchableQuerySetMixin, models.QuerySet):
@@ -19,9 +45,98 @@ class ReportQuerySet(SearchableQuerySetMixin, models.QuerySet):
 
 @python_2_unicode_compatible
 class AbstractReport(index.Indexed, models.Model):
-    title = models.CharField(max_length=255, verbose_name=_('title'))
-    query = models.TextField(verbose_name=_('query'), blank=True)
-    created_at = models.DateTimeField(verbose_name=_('created at'), auto_now_add=True)
+    title = models.CharField(
+        max_length=255,
+        verbose_name=_('title'),
+    )
+    query = models.CharField(
+        verbose_name=_('query'),
+        max_length=200,
+        blank=True,
+    )
+    content_type = models.ForeignKey(
+        'contenttypes.ContentType',
+        verbose_name=_('content type'),
+        related_name='reports',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+    )
+    ANYONE = ''
+    ME = 'me'
+    NOT_ME = 'not me'
+    OWNER_CHOICES = [
+        (ANYONE, _('Anyone')),
+        (ME, _('Me')),
+        (NOT_ME, _('Not me')),
+    ]
+    owner = models.CharField(
+        choices=OWNER_CHOICES,
+        max_length=100,
+        blank=True,
+    )
+    live = models.NullBooleanField(
+        verbose_name=_('live'),
+        default=None,
+    )
+    PERIOD_CHOICES = [
+        ('now-14d', _('Comming 2 weeks')),
+        ('now-7d', _('Comming week')),
+        ('now-3d', _('Comming 3 days')),
+        ('now-2d', _('Comming 2 days')),
+        ('now-1d', _('now - tomorrow midnight')),
+        ('now-mn', _('now - midnight')),
+        ('now-3h', _('Comming 3 hours')),
+        ('now-2h', _('Comming 2 hours')),
+        ('now-1h', _('Comming hour')),
+        ('today', _('Today')),
+        ('1h-now', _('Past hour')),
+        ('2h-now', _('Past 2 hours')),
+        ('3h-now', _('Past 3 hours')),
+        ('mn-now', _('Past midnight - now')),
+        ('2d-now', _('Past 2 days')),
+        ('3d-now', _('Past 3 days')),
+        ('7d-now', _('Past week')),
+        ('14d-now', _('Past 2 weeks')),
+    ]
+    go_live_at = models.CharField(
+        verbose_name=_('go live date/time'),
+        max_length=100,
+        blank=True,
+        choices=PERIOD_CHOICES,
+    )
+    expire_at = models.CharField(
+        verbose_name=_("expiry date/time"),
+        max_length=100,
+        blank=True,
+        choices=PERIOD_CHOICES,
+    )
+    expired = models.NullBooleanField(
+        verbose_name=_('expired'),
+        default=None,
+    )
+    locked = models.NullBooleanField(
+        verbose_name=_('locked'),
+        default=None,
+    )
+    has_unpublished_changes = models.NullBooleanField(
+        verbose_name=_('has unpublished changes'),
+        default=None,
+    )
+    # Display options
+    list_length = models.PositiveIntegerField(
+        verbose_name=_('list length'),
+        default=5
+    )
+    total_count = models.BooleanField(
+        verbose_name=_('display total count'),
+        default=False
+    )
+    # Meta fields
+    created_at = models.DateTimeField(
+        verbose_name=_('created at'),
+        auto_now_add=True
+    )
     created_by_user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name=_('created by user'),
@@ -45,8 +160,35 @@ class AbstractReport(index.Indexed, models.Model):
         return report_permission_policy.user_has_permission_for_instance(user, 'change', self)
 
     def results(self):
-        objects = Page.objects.all()[:5]
-        return objects
+        qs = self.content_type.get_all_objects_for_this_type()
+        if self.query:
+            qs = qs.filter(title__icontains=self.query)
+        # if self.owner == self.ME:
+        #     qs = qs.filter(owner=self.request.user)
+        # if self.owner == self.NOT_ME:
+        #     qs = qs.exclude(owner=self.request.user)
+        if self.live is not None:
+            qs = qs.filter(live=self.live)
+        if self.go_live_at:
+            start, end = string_to_datetime(self.go_live_at)
+            qs = qs.filter(go_live_at__gte=start, go_live_at__lte=end)
+        if self.expire_at:
+            start, end = string_to_datetime(self.expire_at)
+            qs = qs.filter(expire_at__gte=start, expire_at__lte=end)
+        if self.expired is not None:
+            qs = qs.filter(expired=self.expired)
+        if self.locked is not None:
+            qs = qs.filter(locked=self.locked)
+        if self.has_unpublished_changes is not None:
+            qs = qs.filter(has_unpublished_changes=self.has_unpublished_changes)
+        ctx = {
+            'list': qs[:self.list_length]
+        }
+        if self.total_count:
+            ctx.update({
+                'count': qs.count()
+            })
+        return ctx
 
     class Meta:
         abstract = True
@@ -56,7 +198,17 @@ class AbstractReport(index.Indexed, models.Model):
 class Report(AbstractReport):
     admin_form_fields = (
         'title',
+        'list_length',
+        'total_count',
         'query',
+        'content_type',
+        'owner',
+        'live',
+        'go_live_at',
+        'expire_at',
+        'expired',
+        'locked',
+        'has_unpublished_changes',
     )
 
 
